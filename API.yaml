@@ -138,15 +138,16 @@ paths:
           description: Team created
 
   /teams/{teamId}/players:
+    parameters:
+      - name: teamId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: ID of the team
     get:
-      summary: Get list of players for a specific team enter
+      summary: Get list of players for a specific team
       parameters:
-        - name: TeamId
-          in: path
-          required: true
-          schema:
-            type: string
-          description: ID of the team
         - $ref: '#/components/parameters/PlayerNameQuery'
         - $ref: '#/components/parameters/PaginationParams'
         - $ref: '#/components/parameters/PageSizeParams'
@@ -195,9 +196,9 @@ paths:
 
   /teams/{teamId}/players/transfer:
     post:
-      summary: Transfer a list of players to a specific team enter
+      summary: Transfer a list of players to a specific team
       parameters:
-        - name: TeamId
+        - name: teamId
           in: path
           required: true
           schema:
